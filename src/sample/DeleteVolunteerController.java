@@ -8,8 +8,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Volunteer;
 
 import java.io.IOException;
 
@@ -31,6 +33,9 @@ public class DeleteVolunteerController {
     private Button quitButton;
 
     @FXML
+    private Label vLabel;
+
+    @FXML
     void returnToVolunteerMenu(ActionEvent e) throws IOException {
         Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
 
@@ -45,6 +50,17 @@ public class DeleteVolunteerController {
 
         loginWindow.setScene(menuScene);
         loginWindow.show();
+    }
+
+    @FXML
+    void deleteVolunteer(ActionEvent e) {
+
+        db.deleteVolunteer(Integer.parseInt(v_id.getText()));
+
+        vLabel.setText("Volunteer " + Integer.parseInt(v_id.getText()) + " has been deleted");
+
+        v_id.clear();
+
     }
 
 }
