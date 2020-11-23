@@ -95,6 +95,24 @@ public class VolunteerMenuController {
         loginWindow.show();
     }
 
+    @FXML
+    void groupButton(ActionEvent e) throws IOException {
+
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupVolunteerController.fxml"));
+        Parent menu = loader.load();
+
+        GroupVolunteerController controller = loader.getController();
+
+        controller.setDb(db);
+
+        Scene menuScene = new Scene(menu);
+
+        loginWindow.setScene(menuScene);
+        loginWindow.show();
+    }
+
 
 
 }

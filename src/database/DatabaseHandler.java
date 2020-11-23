@@ -232,7 +232,7 @@ public class DatabaseHandler {
         insertDirector(director3);
     }
 
-    public void getVolunteersInfo(String dCity,Integer project_id) {
+    public ArrayList<String> getVolunteersInfo(String dCity,Integer project_id) {
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT count(v.volunteer_id), v.v_name,v.v_phone,v.v_city" +
@@ -241,20 +241,31 @@ public class DatabaseHandler {
                     " and v.v_city=" +dCity+
                     " GROUP BY v.v_name,v.v_phone,v.v_city");
 
-            System.out.println("Count Name" + "            " + "Phone Number City");
+
+            ArrayList<String> arr = new ArrayList();
+
+
             while(rs.next()) {
                 int count = rs.getInt(1);
                 String name =rs.getString(2);
                 int phoneNumber = rs.getInt(3);
                 String city =rs.getString(4);
-                System.out.println(count + "     " + name + " " + phoneNumber+ " " + city);
+                //System.out.println(count + "     " + name + " " + phoneNumber+ " " + city);
+
+                arr.add(count + " " + name + " " + phoneNumber+ " " + city + "    ");
             }
+
 
             rs.close();
             stmt.close();
+
+            return arr;
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+
         }
+
+        return null;
 
     }
 

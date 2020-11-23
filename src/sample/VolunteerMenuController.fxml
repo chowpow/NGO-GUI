@@ -36,7 +36,7 @@
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="groupVolunteer" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" text="Group Volunteers" GridPane.rowIndex="1">
+            <Button fx:id="groupVolunteer" mnemonicParsing="false" onAction="#groupButton" prefHeight="60.0" prefWidth="162.0" text="Group Volunteers" GridPane.rowIndex="1">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
