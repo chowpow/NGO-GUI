@@ -8,13 +8,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class DeleteDirectorController {
+public class UpdateDirectorController {
 
     private DatabaseHandler db;
 
@@ -26,23 +27,16 @@ public class DeleteDirectorController {
     private TextField d_id;
 
     @FXML
-    private Button d_delete;
+    private Button d_submit;
 
     @FXML
     private Button quitButton;
 
     @FXML
-    private Label vLabel;
+    private Text groupOutput;
 
     @FXML
-    void deleteDirector(ActionEvent event) {
-        db.deleteDirector(Integer.parseInt(d_id.getText()));
-
-        vLabel.setText("Director " + Integer.parseInt(d_id.getText()) + " has been deleted");
-
-        d_id.clear();
-
-    }
+    private PasswordField d_pass;
 
     @FXML
     void returnToDirectorMenu(ActionEvent e) throws IOException {
@@ -59,7 +53,18 @@ public class DeleteDirectorController {
 
         loginWindow.setScene(volMenuScene);
         loginWindow.show();
+    }
 
+    @FXML
+    void updateDirector(ActionEvent event) {
+        int dId = Integer.parseInt(d_id.getText());
+        String dPass = d_pass.getText();
+
+        db.updateDirector(dId, dPass);
+        groupOutput.setText("Director: " + dId + "'s password has been changed");
+
+        d_id.clear();
+        d_pass.clear();
     }
 
 }

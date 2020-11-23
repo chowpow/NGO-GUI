@@ -39,7 +39,20 @@ public class DirectorMenuController {
     private Button directorExit;
 
     @FXML
-    void deleteButton(ActionEvent event) {
+    void deleteButton(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("DeleteDirectorController.fxml"));
+        Parent volMenu = loader.load();
+
+        Scene volMenuScene = new Scene(volMenu);
+
+        DeleteDirectorController controller = loader.getController();
+        controller.setDb(db);
+
+        loginWindow.setScene(volMenuScene);
+        loginWindow.show();
 
     }
 
@@ -90,7 +103,20 @@ public class DirectorMenuController {
     }
 
     @FXML
-    void updateButton(ActionEvent event) {
+    void updateButton(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("UpdateDirectorController.fxml"));
+        Parent volMenu = loader.load();
+
+        Scene volMenuScene = new Scene(volMenu);
+
+        UpdateDirectorController controller = loader.getController();
+        controller.setDb(db);
+
+        loginWindow.setScene(volMenuScene);
+        loginWindow.show();
 
     }
 
