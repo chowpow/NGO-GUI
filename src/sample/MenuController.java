@@ -82,5 +82,23 @@ public class MenuController {
         loginWindow.show();
     }
 
+    @FXML
+    void directorButtonPressed(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("DirectorMenuController.fxml"));
+        Parent volMenu = loader.load();
+
+        Scene volMenuScene = new Scene(volMenu);
+
+        DirectorMenuController controller = loader.getController();
+        controller.setDb(databaseHandler);
+
+        loginWindow.setScene(volMenuScene);
+        loginWindow.show();
+
+    }
+
 
 }

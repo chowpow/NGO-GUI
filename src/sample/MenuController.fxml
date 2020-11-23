@@ -26,7 +26,7 @@
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="directorButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="156.0" text="Director" GridPane.columnIndex="1">
+            <Button fx:id="directorButton" mnemonicParsing="false" onAction="#directorButtonPressed" prefHeight="27.0" prefWidth="156.0" text="Director" GridPane.columnIndex="1">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
