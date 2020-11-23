@@ -31,7 +31,7 @@
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="deleteVolunteer" mnemonicParsing="false" onAction="#deleteButton" prefHeight="60.0" prefWidth="166.0" text="Delete Volunteer" GridPane.columnIndex="1">
+            <Button fx:id="deleteVolunteer" mnemonicParsing="false" onAction="#deleteButton" prefHeight="60.0" prefWidth="162.0" text="Delete Volunteer" GridPane.columnIndex="1">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
@@ -41,17 +41,17 @@
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="volunteerJoin" mnemonicParsing="false" prefHeight="60.0" prefWidth="164.0" text="Volunteer Join" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="volunteerJoin" mnemonicParsing="false" onAction="#joinButton" prefHeight="60.0" prefWidth="162.0" text="Volunteer Join" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="volunteerDivision" mnemonicParsing="false" prefHeight="60.0" prefWidth="166.0" text="Volunteer Division" GridPane.rowIndex="2">
+            <Button fx:id="volunteerDivision" mnemonicParsing="false" onAction="#divisionButton" prefHeight="60.0" prefWidth="162.0" text="Volunteer Division" GridPane.rowIndex="2">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="volunteerExit" mnemonicParsing="false" onAction="#exitButton" prefHeight="60.0" prefWidth="165.0" text="Exit" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="volunteerExit" mnemonicParsing="false" onAction="#exitButton" prefHeight="60.0" prefWidth="162.0" text="Exit" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>

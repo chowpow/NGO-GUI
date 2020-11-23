@@ -131,59 +131,61 @@ public class DatabaseHandler {
     }
 
     //Volunteer Division 1
-    public Project[] getVolunteerInfoDivision1() {
+    public ArrayList<String> getVolunteerInfoDivision1() {
 
         ArrayList<Project> result = new ArrayList<Project>();
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT P.project_id FROM project P WHERE NOT EXISTS ((SELECT V.volunteer_id FROM volunteer V) MINUS (SELECT W.volunteer_id FROM workon W WHERE W.project_id = P.project_id))");
 
+            ArrayList<String> arr = new ArrayList<>();
 
             while(rs.next()) {
-                Project model = new Project(rs.getInt("project_id"),
-                        " ",
-                        0,
-                        " ");
-                result.add(model);
+                int pid = rs.getInt(1);
+
+                arr.add(pid + " ");
             }
 
             rs.close();
             stmt.close();
+
+            return arr;
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
         }
 
-        return result.toArray(new Project[result.size()]);
+        return null;
 
     }
 
 
     //Volunteer Division 2
-    public Volunteer[] getVolunteerInfoDivision2() {
+    public ArrayList<String> getVolunteerInfoDivision2() {
 
-        ArrayList<Volunteer> result = new ArrayList<Volunteer>();
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT V.volunteer_id, V.v_name FROM volunteer V WHERE NOT EXISTS ((SELECT P.project_id FROM project P) MINUS (select W.project_id FROM workon W WHERE W.volunteer_id = V.volunteer_id))");
 
 
+            ArrayList<String> arr = new ArrayList<>();
+
             while(rs.next()) {
-                Volunteer model = new Volunteer(rs.getInt("volunteer_id"),
-                        " ",
-                        rs.getString("v_name"),
-                        0,
-                        " ",
-                        " ");
-                result.add(model);
+                int vid = rs.getInt(1);
+                String name = rs.getString(2);
+
+                arr.add(vid + " " + name + " ");
             }
 
             rs.close();
             stmt.close();
+
+            return arr;
+
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
         }
 
-        return result.toArray(new Volunteer[result.size()]);
+        return null;
 
     }
 
@@ -269,61 +271,75 @@ public class DatabaseHandler {
 
     }
 
-    public Volunteer[] getVolunteerInfoJoin1() {
+    public ArrayList<String> getVolunteerInfoJoin1() {
 
-        ArrayList<Volunteer> result = new ArrayList<Volunteer>();
+
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT v_name, v_phone FROM volunteer V, workon W WHERE V.volunteer_id = W.volunteer_id");
 
 
-            while(rs.next()) {
-                Volunteer model = new Volunteer( 0,
-                        " ",
-                        rs.getString("v_name"),
-                        rs.getInt("v_phone"),
-                        " ",
-                        " ");
-                result.add(model);
+//            while(rs.next()) {
+//                Volunteer model = new Volunteer( 0,
+//                        " ",
+//                        rs.getString("v_name"),
+//                        rs.getInt("v_phone"),
+//                        " ",
+//                        " ");
+//                result.add(model);
+//            }
+
+            ArrayList<String> arr = new ArrayList();
+
+            while (rs.next()) {
+                String name = rs.getString(1);
+                int phone = rs.getInt(2);
+
+                arr.add(name + " " + phone + " ");
             }
 
             rs.close();
             stmt.close();
+
+            return arr;
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
         }
 
-        return result.toArray(new Volunteer[result.size()]);
+        return null;
+
 
     }
 
 
 
-    public Volunteer[] getVolunteerInfoJoin2() {
+    public ArrayList<String> getVolunteerInfoJoin2() {
 
         ArrayList<Volunteer> result = new ArrayList<Volunteer>();
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT v_name, v_phone FROM volunteer V, leads L WHERE V.volunteer_id = L.volunteer_id");
 
+            ArrayList<String> arr = new ArrayList();
 
-            while(rs.next()) {
-                Volunteer model = new Volunteer( 0,
-                        " ",
-                        rs.getString("v_name"),
-                        rs.getInt("v_phone"),
-                        " ",
-                        " ");
-                result.add(model);
+            while (rs.next()) {
+                String name = rs.getString(1);
+                int phone = rs.getInt(2);
+
+                arr.add(name + " " + phone + " ");
             }
 
             rs.close();
             stmt.close();
+
+            return arr;
+
+
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
         }
 
-        return result.toArray(new Volunteer[result.size()]);
+        return null;
 
     }
 

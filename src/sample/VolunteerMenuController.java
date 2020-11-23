@@ -113,6 +113,42 @@ public class VolunteerMenuController {
         loginWindow.show();
     }
 
+    @FXML
+    void joinButton(ActionEvent e) throws IOException {
+
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("JoinVolunteerController.fxml"));
+        Parent menu = loader.load();
+
+        JoinVolunteerController controller = loader.getController();
+
+        controller.setDb(db);
+
+        Scene menuScene = new Scene(menu);
+
+        loginWindow.setScene(menuScene);
+        loginWindow.show();
+    }
+
+    @FXML
+    void divisionButton(ActionEvent e) throws IOException {
+
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DivisionVolunteerController.fxml"));
+        Parent menu = loader.load();
+
+        DivisionVolunteerController controller = loader.getController();
+
+        controller.setDb(db);
+
+        Scene menuScene = new Scene(menu);
+
+        loginWindow.setScene(menuScene);
+        loginWindow.show();
+    }
+
 
 
 }

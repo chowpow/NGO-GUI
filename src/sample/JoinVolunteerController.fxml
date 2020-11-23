@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1abc9c;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.JoinVolunteerController">
+   <children>
+      <Text layoutX="86.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volunteer join operation" textAlignment="CENTER" wrappingWidth="428.21630859375">
+         <font>
+            <Font name="Tahoma" size="23.0" />
+         </font>
+      </Text>
+      <Text fx:id="groupOutput" layoutX="61.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="508.21630859375">
+         <font>
+            <Font name="Tahoma" size="15.0" />
+         </font>
+      </Text>
+      <GridPane hgap="20.0" layoutX="79.0" layoutY="59.0" prefHeight="177.0" prefWidth="472.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Find project(s) that has been worked on by ALL volunteers" wrappingWidth="204.0673828125">
+               <font>
+                  <Font name="Tahoma" size="15.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Find volunteer(s) who worked on ALL projects" wrappingWidth="204.0673828125" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Tahoma" size="15.0" />
+               </font>
+            </Text>
+            <Button fx:id="quitButton" mnemonicParsing="false" onAction="#returnToVolunteerMenu" prefHeight="44.0" prefWidth="99.0" text="Quit" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Tahoma" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="join1" mnemonicParsing="false" onAction="#joinVolunteer1" prefHeight="44.0" prefWidth="99.0" text="Run" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Tahoma" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="join2" mnemonicParsing="false" onAction="#joinVolunteer2" prefHeight="44.0" prefWidth="99.0" text="Run" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Tahoma" size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </GridPane>
+      <Text fx:id="joinOutput" layoutX="49.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="531.21630859375">
+         <font>
+            <Font name="Tahoma" size="13.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -78,73 +78,25 @@ public class NGO implements LoginDelegate {
     }
 
     public void volunteerJoin1() {
-        Volunteer[] models = databaseHandler.getVolunteerInfoJoin1();
-
-        for (int i = 0; i < models.length; i++) {
-            Volunteer model = models[i];
-
-            // simplified output formatting; truncation may occur
-            //    System.out.printf("%-10.10s", model.getDirectorID());
-            System.out.printf("%-20.20s", model.getName());
-            System.out.printf("%-15.15s", model.getPhoneNumber());
-
-
-            System.out.println();
-
-        }
+        databaseHandler.getVolunteerInfoJoin1();
 
     }
 
     public void volunteerJoin2() {
-        Volunteer[] models = databaseHandler.getVolunteerInfoJoin2();
-
-        for (int i = 0; i < models.length; i++) {
-            Volunteer model = models[i];
-
-            // simplified output formatting; truncation may occur
-            //    System.out.printf("%-10.10s", model.getDirectorID());
-            System.out.printf("%-20.20s", model.getName());
-            System.out.printf("%-15.15s", model.getPhoneNumber());
-
-
-            System.out.println();
-
-        }
+        databaseHandler.getVolunteerInfoJoin2();
 
     }
 
     public void volunteerDivision1() {
-        Project[] models = databaseHandler.getVolunteerInfoDivision1();
+        databaseHandler.getVolunteerInfoDivision1();
 
-        for (int i = 0; i < models.length; i++) {
-            Project model = models[i];
-
-            // simplified output formatting; truncation may occur
-            System.out.printf("%-10.10s", model.getProjectID());
-
-
-
-            System.out.println();
-
-        }
 
     }
 
     public void volunteerDivision2() {
-        Volunteer[] models = databaseHandler.getVolunteerInfoDivision2();
-
-        for (int i = 0; i < models.length; i++) {
-            Volunteer model = models[i];
-
-            // simplified output formatting; truncation may occur
-            System.out.printf("%-10.10s", model.getVolunteerID());
-            System.out.printf("%-20.20s", model.getName());
+        databaseHandler.getVolunteerInfoDivision2();
 
 
-
-            System.out.println();
-
-        }
 
     }
 
