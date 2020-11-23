@@ -21,7 +21,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="volunteerButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="156.0" text="Volunteer">
+            <Button fx:id="volunteerButton" mnemonicParsing="false" onAction="#volunteerButtonPressed" prefHeight="27.0" prefWidth="156.0" text="Volunteer">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>

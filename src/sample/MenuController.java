@@ -16,6 +16,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class MenuController {
 
     private DatabaseHandler databaseHandler;
@@ -48,6 +50,11 @@ public class MenuController {
     @FXML
     private Text menuText;
 
+
+
+
+
+
     @FXML
     void quitButtonPressed(ActionEvent event) {
         Stage currentWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -55,6 +62,24 @@ public class MenuController {
         currentWindow.close();
 
 
+    }
+
+
+    @FXML
+    void volunteerButtonPressed(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("VolunteerMenuController.fxml"));
+        Parent volMenu = loader.load();
+
+        Scene volMenuScene = new Scene(volMenu);
+
+        VolunteerMenuController controller = loader.getController();
+        controller.setDb(databaseHandler);
+
+        loginWindow.setScene(volMenuScene);
+        loginWindow.show();
     }
 
 

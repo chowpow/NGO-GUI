@@ -73,7 +73,7 @@ public class UserInput {
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int choice = INVALID_INPUT;
 
-        while (choice != 5) {
+        while (choice != 6) {
             System.out.println("1. Insert Volunteer");
             System.out.println("2. Delete Volunteer");
             System.out.println("3. Group Volunteers by City and Project");
