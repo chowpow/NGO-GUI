@@ -67,7 +67,20 @@ public class ProjectMenuController {
     }
 
     @FXML
-    void insertButton(ActionEvent event) {
+    void insertButton(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("InsertProjectController.fxml"));
+        Parent volMenu = loader.load();
+
+        Scene volMenuScene = new Scene(volMenu);
+
+        InsertProjectController controller = loader.getController();
+        controller.setDb(db);
+
+        loginWindow.setScene(volMenuScene);
+        loginWindow.show();
 
     }
 
