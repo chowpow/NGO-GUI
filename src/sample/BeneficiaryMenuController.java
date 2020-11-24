@@ -56,7 +56,20 @@ public class BeneficiaryMenuController {
     }
 
     @FXML
-    void insertButton(ActionEvent event) {
+    void insertButton(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("InsertBeneController.fxml"));
+        Parent menu = loader.load();
+
+        Scene menuScene = new Scene(menu);
+
+        InsertBeneController controller = loader.getController();
+        controller.setDb(db);
+
+        loginWindow.setScene(menuScene);
+        loginWindow.show();
 
     }
 

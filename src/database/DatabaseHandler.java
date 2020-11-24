@@ -143,7 +143,7 @@ public class DatabaseHandler {
             while(rs.next()) {
                 int pid = rs.getInt(1);
 
-                arr.add("Project_id: " + pid + " ");
+                arr.add("Project ID: " + pid + " ");
             }
 
             rs.close();
@@ -173,7 +173,7 @@ public class DatabaseHandler {
                 int vid = rs.getInt(1);
                 String name = rs.getString(2);
 
-                arr.add("Volunteer_id: " + vid + " " + "Name: " + name + " ");
+                arr.add("Volunteer ID: " + vid + " " + "Name: " + name + " ");
             }
 
             rs.close();
