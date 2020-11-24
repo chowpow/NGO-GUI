@@ -66,6 +66,8 @@ public class DatabaseHandler {
 //        acquireTableSetup();
 //        collectTableSetup();
         donorTableSetup();
+        updatedRecordSetUp();
+        triggerSetUp();
 
     }
 
@@ -1123,6 +1125,55 @@ public class DatabaseHandler {
             e.printStackTrace();
         }
     }
+
+    //updated record table
+    public void updatedRecordSetUp() {
+        //dropTableIfExists("updatedRecord");
+//        Statement statement = connection.createStatement();
+//        //ResultSet resultSet = statement.executeQuery("select table_name from user_tables");
+//        statement.execute("DROP TABLE " + "updatedRecord" + " cascade constraints");
+//
+//
+//        //resultSet.close();
+//        statement.close();
+
+
+        try {
+            Statement statement = connection.createStatement();
+            statement.execute("DROP TABLE " + "updatedRecord" + " cascade constraints");
+            //resultSet.close();
+            statement.close();
+
+            Statement statement1 = connection.createStatement();
+            statement1.executeUpdate("CREATE TABLE updatedRecord(directorUpdate_id integer PRIMARY KEY, updated_password varchar2(20), old_password varchar2(20), update_date DATE )");
+            statement1.close();
+
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    //trigger set up
+    public void triggerSetUp() {
+        //dropTableIfExists("updatedRecord");
+        try {
+            Statement statement = connection.createStatement();
+            statement.execute("CREATE OR REPLACE TRIGGER director_after_update " +
+                    "AFTER UPDATE ON director " +
+                    "FOR EACH ROW " +
+                    "BEGIN " +
+                    "INSERT INTO updatedRecord (directorUpdate_id,updated_password,old_password,update_date) VALUES (:new.director_id,:new.d_password, :old.d_password, CURRENT_DATE); " +
+                    "END; ");
+            statement.close();
+
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
 
 
 }

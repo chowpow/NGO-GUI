@@ -37,6 +37,7 @@ public class ProjectInfoController {
 
     @FXML
     void projectHaving(ActionEvent event) {
+        update.setText("");
 
         ArrayList<String> arr = db.projectInfo(Integer.parseInt(p_amount.getText()));
 
