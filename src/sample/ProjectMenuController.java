@@ -75,7 +75,20 @@ public class ProjectMenuController {
     }
 
     @FXML
-    void infoButton(ActionEvent event) {
+    void infoButton(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ProjectInfoController.fxml"));
+        Parent volMenu = loader.load();
+
+        Scene volMenuScene = new Scene(volMenu);
+
+        ProjectInfoController controller = loader.getController();
+        controller.setDb(db);
+
+        loginWindow.setScene(volMenuScene);
+        loginWindow.show();
 
     }
 

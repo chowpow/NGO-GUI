@@ -591,27 +591,35 @@ public class DatabaseHandler {
         }
     }
 
-    public void projectInfo(int amount) {
+    public ArrayList<String> projectInfo(int amount) {
         try {
             Statement stmt = connection.createStatement();
             //ResultSet rs = stmt.executeQuery("SELECT COUNT(project_id)," + option + " FROM project GROUP BY " + option);
             ResultSet rs = stmt.executeQuery("SELECT budget, COUNT(*) FROM project GROUP BY budget HAVING budget > " + amount);
             System.out.println("Budget  Count");
 
+            ArrayList<String> arr = new ArrayList<>();
+
             while(rs.next()) {
                 int budget = rs.getInt(1);
                 //String description = rs.getString(2);
                 int count = rs.getInt(2);
 
-                System.out.println(budget + "     " + count);
+                arr.add(budget + " " + count + " ");
+
+                System.out.println(budget + " " + count);
             }
 
             rs.close();
             stmt.close();
 
+            return arr;
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return null;
     }
 
     public void beneficiaryTableSetup() {
