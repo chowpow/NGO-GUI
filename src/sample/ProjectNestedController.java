@@ -40,11 +40,15 @@ public class ProjectNestedController {
 
     @FXML
     void projectNested(ActionEvent event) {
+        groupOutput.setText("");
         ArrayList<String> arr = db.getBeneficiaryCityAndMinAge(Integer.parseInt(p_id.getText()), Integer.parseInt(b_age.getText()));
 
         for (String s: arr) {
             groupOutput.setText(groupOutput.getText() + s);
         }
+
+        p_id.clear();
+        b_age.clear();
 
     }
 

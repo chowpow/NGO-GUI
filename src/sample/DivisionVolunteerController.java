@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -22,8 +23,7 @@ public class DivisionVolunteerController {
         this.db = db;
     }
 
-    @FXML
-    private Text groupOutput;
+
 
     @FXML
     private Button quitButton;
@@ -35,27 +35,29 @@ public class DivisionVolunteerController {
     private Button join2;
 
     @FXML
-    private Text joinOutput;
+    private Label groupOutput;
 
     @FXML
     void volunteerDivision1(ActionEvent event) {
+        groupOutput.setText("");
         ArrayList<String> arr;
 
         arr = db.getVolunteerInfoDivision1();
 
         for (String s : arr) {
-            joinOutput.setText(groupOutput.getText() + s);
+            groupOutput.setText(groupOutput.getText() + s);
         }
     }
 
     @FXML
     void volunteerDivision2(ActionEvent event) {
+        groupOutput.setText("");
         ArrayList<String> arr;
 
         arr = db.getVolunteerInfoDivision2();
 
         for (String s : arr) {
-            joinOutput.setText(groupOutput.getText() + s);
+            groupOutput.setText(groupOutput.getText() + s);
         }
 
     }

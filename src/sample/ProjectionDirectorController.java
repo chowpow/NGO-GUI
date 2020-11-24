@@ -36,6 +36,7 @@ public class ProjectionDirectorController {
 
     @FXML
     void projectDirector(ActionEvent event) {
+        joinOutput.setText("");
 //        String directorCity = d_city.getText();
 //
 //        ArrayList<String> arr = db.getDirectorInfo("'" + d_city.getText() + "'");
@@ -48,6 +49,7 @@ public class ProjectionDirectorController {
 //        d_city.clear();
 
         ArrayList<String> arr = db.getDirectorInfoProj();
+
 
         for (String s : arr) {
             joinOutput.setText(joinOutput.getText() + s);
