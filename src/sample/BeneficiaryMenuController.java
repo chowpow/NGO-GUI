@@ -30,7 +30,20 @@ public class BeneficiaryMenuController {
     private Button projectExit;
 
     @FXML
-    void deleteButton(ActionEvent event) {
+    void deleteButton(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("DeleteBeneController.fxml"));
+        Parent menu = loader.load();
+
+        Scene menuScene = new Scene(menu);
+
+        DeleteBeneController controller = loader.getController();
+        controller.setDb(db);
+
+        loginWindow.setScene(menuScene);
+        loginWindow.show();
 
     }
 

@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -33,7 +34,7 @@ public class UpdateDirectorController {
     private Button quitButton;
 
     @FXML
-    private Text groupOutput;
+    private Label groupOutput;
 
     @FXML
     private PasswordField d_pass;
