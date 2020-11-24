@@ -66,6 +66,9 @@ public class DirectorMenuController {
 
         Scene menuScene = new Scene(menu);
 
+        MenuController controller = loader.getController();
+        controller.setDatabaseHandler(db);
+
 //        MenuController controller = loader.getController();
 //        controller.setDatabaseHandler(databaseHandler);
 
@@ -93,12 +96,39 @@ public class DirectorMenuController {
     }
 
     @FXML
-    void projectionButton(ActionEvent event) {
+    void projectionButton(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ProjectionDirectorController.fxml"));
+        Parent volMenu = loader.load();
+
+        Scene volMenuScene = new Scene(volMenu);
+
+        ProjectionDirectorController controller = loader.getController();
+        controller.setDb(db);
+
+        loginWindow.setScene(volMenuScene);
+        loginWindow.show();
 
     }
 
     @FXML
-    void selectButton(ActionEvent event) {
+    void selectButton(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("SelectionDirectorController.fxml"));
+        Parent volMenu = loader.load();
+
+        Scene volMenuScene = new Scene(volMenu);
+
+        SelectionDirectorController controller = loader.getController();
+        controller.setDb(db);
+
+        loginWindow.setScene(volMenuScene);
+        loginWindow.show();
+
 
     }
 

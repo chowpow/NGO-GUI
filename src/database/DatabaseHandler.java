@@ -347,57 +347,80 @@ public class DatabaseHandler {
 
 // lol
 
-    public Director[] getDirectorInfo(String dCity) {
+    public ArrayList<String> getDirectorInfo(String dCity) {
         ArrayList<Director> result = new ArrayList<Director>();
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM director WHERE d_city =" +dCity );
 
 
+//            while(rs.next()) {
+//                Director model = new Director(rs.getInt("director_id"),
+//                        rs.getString("d_password"),
+//                        rs.getString("d_name"),
+//                        rs.getInt("d_phone"),
+//                        rs.getString("d_address"),
+//                        rs.getString("d_city"));
+//                result.add(model);
+//            }
+//
+//            rs.close();
+//            stmt.close();
+
+            ArrayList<String> arr = new ArrayList();
+
             while(rs.next()) {
-                Director model = new Director(rs.getInt("director_id"),
-                        rs.getString("d_password"),
-                        rs.getString("d_name"),
-                        rs.getInt("d_phone"),
-                        rs.getString("d_address"),
-                        rs.getString("d_city"));
-                result.add(model);
+                int d_id = rs.getInt(1);
+                String d_pass = rs.getString(2);
+                String d_name = rs.getString(3);
+                int d_phone = rs.getInt(4);
+                String d_address = rs.getString(5);
+                String d_city = rs.getString(6);
+
+                arr.add(d_id + " " + d_name + " " + d_phone + " " + d_address + " " + d_city + " ");
             }
 
             rs.close();
             stmt.close();
+
+            return arr;
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
         }
 
-        return result.toArray(new Director[result.size()]);
+        return null;
 
     }
 
-    public Director[] getDirectorInfoProj() {
-        ArrayList<Director> result = new ArrayList<Director>();
+    public ArrayList<String> getDirectorInfoProj() {
+
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT director_id, d_name, d_phone FROM director");
 
+            ArrayList<String> arr = new ArrayList();
 
-            while(rs.next()) {
-                Director model = new Director(rs.getInt("director_id"),
-                        " ",
-                        rs.getString("d_name"),
-                        rs.getInt("d_phone"),
-                        " ",
-                        " ");
-                result.add(model);
+
+
+            while (rs.next()) {
+                int d_id = rs.getInt(1);
+                String d_name = rs.getString(2);
+                int d_phone = rs.getInt(3);
+
+                arr.add(d_id + " " + d_name + " " + d_phone + " ");
+
             }
 
             rs.close();
             stmt.close();
+
+            return arr;
+
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
         }
 
-        return result.toArray(new Director[result.size()]);
+        return null;
 
     }
 

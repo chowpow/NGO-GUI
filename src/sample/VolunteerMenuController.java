@@ -52,6 +52,9 @@ public class VolunteerMenuController {
 
         Scene menuScene = new Scene(menu);
 
+        MenuController controller = loader.getController();
+        controller.setDatabaseHandler(db);
+
 //        MenuController controller = loader.getController();
 //        controller.setDatabaseHandler(databaseHandler);
 
