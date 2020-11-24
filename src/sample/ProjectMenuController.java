@@ -36,7 +36,20 @@ public class ProjectMenuController {
     private Button projectExit;
 
     @FXML
-    void deleteButton(ActionEvent event) {
+    void deleteButton(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("DeleteProjectController.fxml"));
+        Parent volMenu = loader.load();
+
+        Scene volMenuScene = new Scene(volMenu);
+
+        DeleteProjectController controller = loader.getController();
+        controller.setDb(db);
+
+        loginWindow.setScene(volMenuScene);
+        loginWindow.show();
 
     }
 
