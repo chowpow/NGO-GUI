@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -35,7 +36,7 @@ public class JoinVolunteerController {
     private Button join2;
 
     @FXML
-    private Text joinOutput;
+    private Label joinOutput;
 
     @FXML
     void returnToVolunteerMenu(ActionEvent e) throws IOException {
@@ -56,13 +57,14 @@ public class JoinVolunteerController {
 
     @FXML
     void joinVolunteer1(ActionEvent e) {
+        joinOutput.setText("");
 
         ArrayList<String> arr;
 
         arr = db.getVolunteerInfoJoin1();
 
         for (String s : arr) {
-            joinOutput.setText(groupOutput.getText() + s);
+            joinOutput.setText(joinOutput.getText() + s);
 
         }
 
@@ -71,12 +73,14 @@ public class JoinVolunteerController {
     @FXML
     void joinVolunteer2(ActionEvent e) {
 
+        joinOutput.setText("");
+
         ArrayList<String> arr;
 
         arr = db.getVolunteerInfoJoin2();
 
         for (String s : arr) {
-            joinOutput.setText(groupOutput.getText() + s);
+            joinOutput.setText(joinOutput.getText() + s);
 
         }
 

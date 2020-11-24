@@ -180,7 +180,20 @@ public class MenuController {
     }
 
     @FXML
-    void workonButtonPressed() {
+    void workonButtonPressed(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("InsertWorkonController.fxml"));
+        Parent volMenu = loader.load();
+
+        Scene volMenuScene = new Scene(volMenu);
+
+        InsertWorkonController controller = loader.getController();
+        controller.setDb(databaseHandler);
+
+        loginWindow.setScene(volMenuScene);
+        loginWindow.show();
 
     }
 
