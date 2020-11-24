@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="menuPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3498db;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuController">
    <children>
-      <GridPane hgap="50.0" layoutX="21.0" layoutY="47.0" prefHeight="306.0" prefWidth="563.0">
+      <GridPane hgap="50.0" layoutX="21.0" layoutY="63.0" prefHeight="274.0" prefWidth="563.0">
         <columnConstraints>
           <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -21,32 +21,32 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="volunteerButton" mnemonicParsing="false" onAction="#volunteerButtonPressed" prefHeight="27.0" prefWidth="156.0" text="Volunteer">
+            <Button fx:id="volunteerButton" mnemonicParsing="false" onAction="#volunteerButtonPressed" prefHeight="40.0" prefWidth="156.0" text="Volunteer">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="directorButton" mnemonicParsing="false" onAction="#directorButtonPressed" prefHeight="27.0" prefWidth="156.0" text="Director" GridPane.columnIndex="1">
+            <Button fx:id="directorButton" mnemonicParsing="false" onAction="#directorButtonPressed" prefHeight="40.0" prefWidth="156.0" text="Director" GridPane.columnIndex="1">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="projectButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="156.0" text="Project" GridPane.rowIndex="1">
+            <Button fx:id="projectButton" mnemonicParsing="false" onAction="#projectButtonPressed" prefHeight="40.0" prefWidth="156.0" text="Project" GridPane.rowIndex="1">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="beneficiaryButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="156.0" text="Beneficiary" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="beneficiaryButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="156.0" text="Beneficiary" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="donorButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="156.0" text="Donor" GridPane.rowIndex="2">
+            <Button fx:id="donorButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="156.0" text="Donor" GridPane.rowIndex="2">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quitButtonPressed" prefHeight="27.0" prefWidth="156.0" text="Quit" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quitButtonPressed" prefHeight="40.0" prefWidth="156.0" text="Quit" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
