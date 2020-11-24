@@ -42,13 +42,19 @@ public class MenuController {
     private Button beneficiaryButton;
 
     @FXML
-    private Button donorButton;
+    private Button leads;
 
     @FXML
     private Button quitButton;
 
     @FXML
     private Text menuText;
+
+    @FXML
+    private Button help;
+
+    @FXML
+    private Button workon;
 
 
 
@@ -133,6 +139,35 @@ public class MenuController {
 
         loginWindow.setScene(volMenuScene);
         loginWindow.show();
+
+    }
+
+    @FXML
+    void leadsButtonPressed(ActionEvent e) throws IOException {
+        Stage loginWindow = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("InsertLeadsController.fxml"));
+        Parent volMenu = loader.load();
+
+        Scene volMenuScene = new Scene(volMenu);
+
+        InsertLeadsController controller = loader.getController();
+        controller.setDb(databaseHandler);
+
+        loginWindow.setScene(volMenuScene);
+        loginWindow.show();
+
+    }
+
+
+    @FXML
+    void helpButtonPressed() {
+
+    }
+
+    @FXML
+    void workonButtonPressed() {
 
     }
 
