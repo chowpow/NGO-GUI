@@ -143,7 +143,7 @@ public class DatabaseHandler {
             while(rs.next()) {
                 int pid = rs.getInt(1);
 
-                arr.add(pid + " ");
+                arr.add("Project_id: " + pid + " ");
             }
 
             rs.close();
@@ -173,7 +173,7 @@ public class DatabaseHandler {
                 int vid = rs.getInt(1);
                 String name = rs.getString(2);
 
-                arr.add(vid + " " + name + " ");
+                arr.add("Volunteer_id: " + vid + " " + "Name: " + name + " ");
             }
 
             rs.close();
@@ -254,7 +254,7 @@ public class DatabaseHandler {
                 String city =rs.getString(4);
                 //System.out.println(count + "     " + name + " " + phoneNumber+ " " + city);
 
-                arr.add(count + " " + name + " " + phoneNumber+ " " + city + "    ");
+                arr.add("Number: " + count + " " + "Name: " + name + " " + "Phone Number: " + phoneNumber + " " + "City: " + city + " ");
             }
 
 
@@ -295,7 +295,7 @@ public class DatabaseHandler {
                 String name = rs.getString(1);
                 int phone = rs.getInt(2);
 
-                arr.add(name + " " + phone + " ");
+                arr.add("Name: " + name + " " + "Phone Number: " + phone + " ");
             }
 
             rs.close();
@@ -326,7 +326,7 @@ public class DatabaseHandler {
                 String name = rs.getString(1);
                 int phone = rs.getInt(2);
 
-                arr.add(name + " " + phone + " ");
+                arr.add("Name: " + name + " " + "Phone Number: "  + phone + " ");
             }
 
             rs.close();
@@ -377,7 +377,7 @@ public class DatabaseHandler {
                 String d_address = rs.getString(5);
                 String d_city = rs.getString(6);
 
-                arr.add(d_id + " " + d_name + " " + d_phone + " " + d_address + " " + d_city + " ");
+                arr.add("Director_id: " + d_id + " " + "Director Name: " + d_name + " " + "Director Phone Number: " + d_phone + " " + "Director Address: " + d_address + " " + "Director City: " + d_city + " ");
             }
 
             rs.close();
@@ -407,7 +407,7 @@ public class DatabaseHandler {
                 String d_name = rs.getString(2);
                 int d_phone = rs.getInt(3);
 
-                arr.add(d_id + " " + d_name + " " + d_phone + " ");
+                arr.add("Director_id: " + d_id + " " + "Director Name: " + d_name + " " + "Director Phone Number: " + d_phone + " ");
 
             }
 
@@ -605,7 +605,7 @@ public class DatabaseHandler {
                 //String description = rs.getString(2);
                 int count = rs.getInt(2);
 
-                arr.add(budget + " " + count + " ");
+                arr.add("Budget: " + budget + " " + "Count: " + count + " ");
 
                 System.out.println(budget + " " + count);
             }
@@ -707,9 +707,9 @@ public class DatabaseHandler {
                 int minAge = rs.getInt(1);
                 String city = rs.getString(2);
 
-                System.out.println( city+ "      " + minAge);
+                System.out.println(city+ "      " + minAge);
 
-                arr.add(minAge + " " + city + " ");
+                arr.add("Average age: " + minAge + " " + "City: " + city + " ");
 
             }
 

@@ -540,7 +540,7 @@ public class UserInput {
     private void handleBeneficiaryInsert() {
         int bid = INVALID_INPUT;
         // || ((int) (Math.log10(vid) + 1)) < 9 for check
-        while (bid == INVALID_INPUT || (bid <= 100000 && bid > 999999)) {
+        while (bid == INVALID_INPUT || (bid <= 100000 || bid > 999999)) {
             System.out.println("Please enter the beneficiary ID (6 digits)");
             bid = readInt();
         }
@@ -551,13 +551,13 @@ public class UserInput {
             name = readString().trim();
         }
         int age = INVALID_INPUT;
-        while (age == INVALID_INPUT || (age<= 1 && age > 999)) {
+        while (age == INVALID_INPUT || (age<= 1 || age > 999)) {
             System.out.println("Please enter the beneficiary age");
             age = readInt();
         }
 
         int phoneNumber = INVALID_INPUT;
-        while (phoneNumber  == INVALID_INPUT || (phoneNumber <= 1000000 && phoneNumber > 9999999)) {
+        while (phoneNumber  == INVALID_INPUT || (phoneNumber <= 1000000 || phoneNumber > 9999999)) {
             System.out.println("Please enter the beneficiary's phone number( 7 digits)");
             phoneNumber = readInt();
         }
