@@ -691,7 +691,7 @@ public class DatabaseHandler {
 
     }
 
-    public void getBeneficiaryCityAndMinAge(int project_id, int age) {
+    public ArrayList<String> getBeneficiaryCityAndMinAge(int project_id, int age) {
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT temp.avage, temp.city FROM(SELECT avg (b.age) avage,b.city " +
@@ -701,19 +701,27 @@ public class DatabaseHandler {
             //                    "
             System.out.println("City " +"      " +"Average AGE");
 
+            ArrayList<String> arr = new ArrayList<>();
+
             while(rs.next()) {
-                String city = rs.getString(1);
-                String minAge = rs.getString(2);
+                int minAge = rs.getInt(1);
+                String city = rs.getString(2);
 
                 System.out.println( city+ "      " + minAge);
+
+                arr.add(minAge + " " + city + " ");
+
             }
 
             rs.close();
             stmt.close();
 
+            return arr;
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     public void donorTableSetup() {
